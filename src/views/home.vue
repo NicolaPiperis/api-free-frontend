@@ -1,16 +1,4 @@
 <script>
-import axios from 'axios';
-
-export default {
-  components: {
-  }, 
-  data() {
-    
-  },
-  mounted () {
-    
-  }
-};
 </script>
 
 <template>

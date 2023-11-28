@@ -7,19 +7,8 @@ export default {
   components: {
     AppFooter,
     AppHeader
-  }, 
-  data() {
-    return {
-      posts: [],
-    };
-  },
-  mounted () {
-    axios.get('http://localhost:3000/posts/all').
-    then( (res) => {
-      this.posts = res.data;
-    }
-    )
   }
+  
 };
 </script>
 
@@ -36,11 +25,13 @@ export default {
 </template>
 
 <style scoped>
+
 main{
   margin-top: 120px;
   margin-bottom: 150px;
   background-color: rgb(20, 20, 40);
   height: calc(100vh - 270px);
+  overflow:auto;
 }
 h1{
   color: white;
@@ -52,4 +43,5 @@ h1{
   justify-content: center;
   height: 90%;
 }
+
 </style>

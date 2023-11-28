@@ -9,19 +9,19 @@
 
             <div>
                 <a href="#">
-                    Blog
+                    <router-link :to="{ name: 'home' }">Blog</router-link>
                 </a>
             </div>
 
             <div id="container-crud">
                 <div>
                     <a href="#">
-                        Index
+                        <router-link :to="{ name: 'index' }">Index</router-link>
                     </a>
                 </div>
                 <div>
                     <a href="#">
-                        Create
+                        <router-link :to="{ name: 'create' }">Create</router-link>
                     </a>
                 </div>
             </div>
