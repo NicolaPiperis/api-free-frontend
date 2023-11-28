@@ -1,30 +1,55 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import AppHeader from './components/AppHeader.vue';
+import AppFooter from './components/AppFooter.vue';
+import axios from 'axios';
+
+export default {
+  components: {
+    AppFooter,
+    AppHeader
+  }, 
+  data() {
+    return {
+      posts: [],
+    };
+  },
+  mounted () {
+    axios.get('http://localhost:3000/posts/all').
+    then( (res) => {
+      this.posts = res.data;
+    }
+    )
+  }
+};
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+  <AppHeader></AppHeader>
+
+  <main>
+
+    <router-view></router-view>
+    
+  </main>
+
+  <AppFooter></AppFooter>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+main{
+  margin-top: 120px;
+  margin-bottom: 150px;
+  background-color: rgb(20, 20, 40);
+  height: calc(100vh - 270px);
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+h1{
+  color: white;
+  font-size: 40px;
 }
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+#h1-main-container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 90%;
 }
 </style>
